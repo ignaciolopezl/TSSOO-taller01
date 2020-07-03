@@ -1,4 +1,4 @@
-# TSSOO-taller01
+
 # TSSOO-taller1
 
 ##### ignacio lopez - ignacio.lopezl@alumnos.uv.cl
