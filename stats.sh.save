@@ -1,0 +1,79 @@
+#!/bin/bash
+
+OUTFILE="usePhone-stats.txt"
+
+usoScript(){
+	echo "Uso: $0 -d search_dir [-h] "
+	exit
+}
+
+
+
+
+problema1(){
+
+	executionSummaryFiles=(`find $searchDir -name '*executionSummary-*.txt' -print | sort `)
+	printf "#tsimTotal:promedio:min:max\n" >> metrics.txt
+	printf "#memUsed:promedio:min:max\n" >> metrics.txt
+	for i in ${executionSummaryFiles[*]};
+		do cat $i | tail -n+2 | awk -F ':' 'BEGIN{sum=0}{sum=$6+$7+$8;}END{print sum}'>>suma.txt;
+	done
+
+	operaciones1=$(cat suma.txt | awk 'BEGIN{ min=2**63-1; max=0}{ if($1<min){min=$1};\
+                                    if($1>max){max=$1};\
+                                    total+=$1; count+=1;\
+                                    } \
+                                    END { print total":",total/count":",min":",max}')
+
+	echo $operaciones1  >>metrics.txt
+	rm suma.txt
+
+	for i in ${executionSummaryFile[*]}; 
+		do cat $i | tail -n+2 | awk -F ':' 'BEGIN{sum=0}{sum=$9;}END{print sum}'>>suma.txt;
+	done
+
+	operaciones12=$(cat suma.txt | awk 'BEGIN{ min=2**63-1; max=0}{ if($1<min){min=$1};\
+                                    if($1>max){max=$1};\
+                                    total+=$1; count+=1;\
+                                    } \
+                                    END { print total":",total/count":",min":",max}')
+        echo 
+	echo $operaciones12  >>metrics.txt
+	rm suma.txt
+
+
+
+
+}
+#
+# MAIN
+#
+while getopts "d:h" opt; do
+  case ${opt} in
+    d )
+		searchDir=$OPTARG
+      ;;
+    h )
+		usoScript
+      ;;
+    \? )
+		usoScript
+      ;;
+  esac
+done
+shift $((OPTIND -1))
+
+if [ -z $searchDir ]; then
+	usoScript
+fi
+
+if [ ! -d $searchDir ]; then
+        echo "$searchDir no es un directorio"
+        exit
+fi
+
+printf "Directorio busqueda: %s\n" $searchDir
+
+
+#Determinar el proedio tiempo de la simulacion total y memoria
+problema1

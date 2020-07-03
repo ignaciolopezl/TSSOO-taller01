@@ -1,0 +1,4 @@
+tsimTotal:promedio:min:max
+2687416:244311:250040:235938
+memUsed:promedio:min:max
+3187732:289794:291784:288236

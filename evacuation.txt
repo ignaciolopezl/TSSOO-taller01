@@ -1,0 +1,22 @@
+alls:promedio:min:max
+residents:promedio:min:max
+visitorsI:promedio:min:max
+residents-G0:promedio:min:max
+residents-G1:promedio:min:max
+residents-G2:promedio:min:max
+residents-G3:promedio:min:max
+visitorsI-G0:promedio:min:max
+visitorsI-G1:promedio:min:max
+visitorsI-G2:promedio:min:max
+visitorsI-G3:promedio:min:max
+155062700: 1.40966e+07: 1.40421e+07: 1.41427e+07
+1.42707e+08: 188.02: 0.218534: 789.985
+1.19618e+07: 184.886: 0.544461: 643.67
+3.04099e+07: 188.136: 0.431991: 789.985
+2.4936e+06: 185.604: 2.34895: 591.412
+3.38148e+07: 187.97: 0.341058: 754.477
+2.84672e+06: 185.164: 0.544461: 641.972
+6.53281e+07: 188.023: 0.218534: 784.164
+5.54969e+06: 184.946: 0.637817: 643.67
+1.31544e+07: 187.864: 1.21467: 683.864
+1.07178e+06: 182.213: 0.917947: 626.502
